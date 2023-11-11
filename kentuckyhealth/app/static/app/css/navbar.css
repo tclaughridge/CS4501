@@ -1,0 +1,8 @@
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-brand img {
+    margin-bottom: 1.2vh !important;
+    margin-top: 1.2vh !important;
+}

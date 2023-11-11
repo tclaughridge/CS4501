@@ -1,0 +1,30 @@
+/* FORMATTING */
+
+body {
+    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif !important;
+}
+
+.btn-primary {
+    background-color: #013561 !important;
+    border-color: #013561 !important;
+}
+
+.btn-primary:hover {
+    background-color: #013d71 !important;
+    border-color: #013d71 !important;
+}
+
+/* SEARCH FIELD */
+
+.search-group {
+    background-image: url('../images/texture.jpg');
+    background-size: 100%;
+}
+
+.form-control, .search-btn {
+      border-radius: 20px; /* Adjust this value to control the roundness */
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
