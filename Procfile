@@ -1,1 +1,1 @@
-web: gunicorn kentucky-health.wsgi
+web: gunicorn kentuckyhealth.wsgi
