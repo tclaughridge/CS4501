@@ -14,6 +14,17 @@ body {
     border-color: #013d71 !important;
 }
 
+.btn-outline-primary {
+    color: #013561 !important;
+    border-color: #013561 !important;
+}
+
+.btn-outline-primary:hover {
+    color: white !important;
+    background-color: #013d71 !important;
+    border-color: #013d71 !important;
+}
+
 /* SEARCH FIELD */
 
 .search-group {
@@ -21,10 +32,16 @@ body {
     background-size: 100%;
 }
 
-.form-control, .search-btn {
+.main-search, .search-btn {
       border-radius: 20px; /* Adjust this value to control the roundness */
 }
 
 .form-control:focus {
+    box-shadow: none;
+}
+
+/* FILTERS */
+
+.accordion-item:active, .accordion-item:focus {
     box-shadow: none;
 }
