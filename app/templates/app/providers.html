@@ -28,7 +28,9 @@
             <div class="card-body p-2 d-flex flex-column">
                 <div class="row">
                     <div class="col">
-                        <img src="{% static 'app/images/placeholder.jpg' %}" class="img-fluid rounded-4" alt="...">
+                        <div class="square-image-container">
+                            <img src="{{ provider.img1 }}" class="img-fluid rounded-4 square-image" alt="{{ provider.name }}">
+                        </div>
                     </div>
                     <div class="col">
                         <h6 class="card-title">{{ provider.name }}</h6>
@@ -36,16 +38,75 @@
                         <p class="card-text text-sm">Phone: {{ provider.phone }}</p>
 
                         <!-- Directions Button -->
-                        <button type="button" class="btn directions btn-success me-1 mt-auto" style="color: white !important;" data-bs-toggle="modal" 
-                        data-bs-target="#providerDetailsModal{{ provider.id }}">Directions</button>
+                        <button type="button" class="btn directions btn-success me-1 mt-auto" style="color: white !important;"
+                        onclick="openGoogleMaps('{{ provider.addressLine1 }}, {{ provider.addressLine2 }}')">Directions</button>
                         <!-- Provider Details Button -->
                         <button type="button" class="btn profile btn-info mt-auto" style="color: white !important;" data-bs-toggle="modal" 
-                        data-bs-target="#providerDetailsModal{{ provider.id }}">Profile</button>
+                        data-bs-target="#providerDetailsModal{{ provider.phone }}">Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Provider Details Modal -->
+        <div class="modal fade" id="providerDetailsModal{{ provider.phone }}" tabindex="-1"
+            aria-labelledby="providerDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered custom-size">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="providerDetailsModalLabel">{{ provider.name }}</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="{{ provider.img1 }}" class="img-fluid rounded-4 square-image-2" alt="{{ provider.name }}">
+                            </div>
+                            <div class="col-4 border-end">
+                                <h3>Address</h3>
+                                <p class="fs-4">{{ provider.addressLine1 }}<br>{{ provider.addressLine2 }}</p>
+                                <h3>Contact</h3>
+                                {% if provider.contact %}
+                                    <p class="fs-4">{{ provider.contact }}</p>
+                                {% endif %}
+                                <p class="fs-4 mb-4"><a href="tel:{{ provider.phone }}" target="_blank">{{ provider.phone }}</a>
+                                {% if provider.website %}
+                                    <a href="{{ provider.website }}" class="fs-4 mb-4" target="_blank">{{ provider.website }}</a>
+                                {% endif %}
+
+                                {% if provider.email %}
+                                    <a href="mailto:{{ provider.email }}" class="fs-4 mb-4" target="_blank">{{ provider.email }}</a>
+                                {% endif %}
+                                <div style="height: 15px;"></div>
+                                <button type="button" class="btn btn-lg btn-success me-1 mt-auto" style="color: white !important;" 
+                                onclick="openGoogleMaps('{{ provider.addressLine1 }}, {{ provider.addressLine2 }}')">Directions</button>
+                            </div>
+                            <div class="col-4 ps-4">
+                                <h3>Services</h3>
+                                <p class="fs-4">{{ provider.service1 }}<br>{{ provider.service2 }}<br>{{ provider.service3 }}</p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     {% endfor %}
+
+    <script>
+        function openGoogleMaps(address) {
+            if (address) {
+                var mapsUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(address);
+                window.open(mapsUrl, '_blank');
+            } else {
+                console.error('Address undefined.');
+            }
+        }
+    </script>
+    
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 /* PROVIDER CARDS */
 .card {
     width: 47%;
-    height: 20vh !important;
+    height: 250px !important;
     display: inline-block !important;
 }
 
@@ -21,4 +21,21 @@
 .btn {
     border-radius: 20px !important; 
     display: inline-block !important;
+}
+
+.custom-size {
+    min-width: 75% !important;
+    max-height: 75% !important;
+}
+
+.square-image {
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover;
+}
+
+.square-image-2 {
+    height: 400px !important;
+    width: 400px !important;
+    object-fit: cover;
 }
