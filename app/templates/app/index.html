@@ -47,12 +47,16 @@
     <div class="container">
         <div class="row gx-5 mt-5">
             <!-- Filters -->
+            <form class="search-class" method="GET" action="" >
             <div class="col-3 border-end">
                 <div class="d-flex justify-content-between mb-3">
                     <h1 class="display-6">Filters</h1>
                     <div class="pt-2">
                         <button class="btn btn-outline-primary search-btn" onclick="resetForm()">Reset All</button>
-                        <button class="btn btn-primary search-btn ml-2" type="submit">Apply</button>
+                        <h1></h1>
+                        {%block search%}
+                        <button class="btn btn-primary search-btn ml-2 search-class" type="submit" name="search">Apply</button>
+                        {%endblock%}
                     </div>
                     <script>
                         function resetForm() {
@@ -254,6 +258,7 @@
                     </div>
                 </div>
             </div>
+            </form>
             <!-- Results -->
             <div class="col-9">
                 <h1 class="display-6">Results</h1>
