@@ -22,6 +22,19 @@
 </head>
 
 <body>
+    <!-- Applied Filters -->
+    {% if filter_conditions %}
+        <h5 class="mb-3">Active Filters:</h5>
+        {% for condition in filter_conditions %}
+            {% if condition.value %}
+                <p class="me-3 text-xs" style="display: inline-block;">
+                    <strong>{{ condition.name }}:</strong> {{ condition.value }}
+                </p>
+            {% endif %}
+        {% endfor %}
+        <hr class="my-4"></hr>
+    {% endif %}
+
     <!-- Provider Cards -->
     {% for provider in data %}
         <div class="card me-4 mb-4 rounded-4">
@@ -34,12 +47,12 @@
                     </div>
                     <div class="col">
                         <h6 class="card-title">{{ provider.name }}</h6>
-                        <p class="card-text text-sm">{{ provider.addressLine1 }}<br>{{ provider.addressLine2 }}</p>
+                        <p class="card-text text-sm">{{ provider.address }}<br>{{ provider.city }}, KY {{ provider.zip }}</p>
                         <p class="card-text text-sm">Phone: {{ provider.phone }}</p>
 
                         <!-- Directions Button -->
                         <button type="button" class="btn directions btn-success me-1 mt-auto" style="color: white !important;"
-                        onclick="openGoogleMaps('{{ provider.addressLine1 }}, {{ provider.addressLine2 }}')">Directions</button>
+                        onclick="openGoogleMaps('{{ provider.address }}  {{ provider.city }}')">Directions</button>
                         <!-- Provider Details Button -->
                         <button type="button" class="btn profile btn-info mt-auto" style="color: white !important;" data-bs-toggle="modal" 
                         data-bs-target="#providerDetailsModal{{ provider.phone }}">Profile</button>
@@ -64,7 +77,7 @@
                             </div>
                             <div class="col-4 border-end">
                                 <h3>Address</h3>
-                                <p class="fs-4">{{ provider.addressLine1 }}<br>{{ provider.addressLine2 }}</p>
+                                <p class="fs-4">{{ provider.address }}<br>{{ provider.city }}, KY {{ provider.zip }}</p>
                                 <h3>Contact</h3>
                                 {% if provider.contact %}
                                     <p class="fs-4">{{ provider.contact }}</p>
@@ -79,12 +92,17 @@
                                 {% endif %}
                                 <div style="height: 15px;"></div>
                                 <button type="button" class="btn btn-lg btn-success me-1 mt-auto" style="color: white !important;" 
-                                onclick="openGoogleMaps('{{ provider.addressLine1 }}, {{ provider.addressLine2 }}')">Directions</button>
+                                onclick="openGoogleMaps('{{ provider.address }} {{ provider.city }}')">Directions</button>
                             </div>
                             <div class="col-4 ps-4">
                                 <h3>Services</h3>
-                                <p class="fs-4">{{ provider.service1 }}<br>{{ provider.service2 }}<br>{{ provider.service3 }}</p>
+                                {% if provider.services %}
+                                <p class="fs-4">
+                                    {% for service in provider.services %}
+                                        {{ service }}<br>
+                                    {% endfor %}
                                 </p>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

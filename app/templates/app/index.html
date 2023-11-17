@@ -48,213 +48,185 @@
         <div class="row gx-5 mt-5">
             <!-- Filters -->
             <div class="col-3 border-end">
-                <form class="search-class" method="GET" action="" >
+                <form class="search-class" method="GET" action="{% url 'app:filter' %}">
                     <div class="d-flex justify-content-between mb-3">
                         <h1 class="display-6">Filters</h1>
                         <div class="pt-2">
-                            <button class="btn btn-outline-primary search-btn" onclick="resetForm()">Reset All</button>
-                            {% block search %}
-                                <button class="btn btn-primary search-btn ml-2 search-class" type="submit" name="search">Apply</button>
-                            {% endblock %}
+                            <button class="btn btn-outline-primary search-btn" onclick="resetForm()" type="button">Reset All</button>
+                            <button class="btn btn-primary search-btn ml-2 search-class" type="submit" name="search">Apply</button>
                         </div>
-                        <script>
-                            function resetForm() {
-                                var text = document.getElementById('locationInput');
-                                var radius = document.getElementById('radiusInput');
-                                var checkboxes = document.querySelectorAll('.form-check-input');
-
-                                text.value = '';
-                                radius.value = 5;
-
-                                checkboxes.forEach(function (checkbox) {
-                                    checkbox.checked = false;
-                                });
-                            }
-                        </script>
                     </div>
                     <hr class="mb-4">
                     <div class="accordion accordion-flush" id="filterAccordion">
+                        <!-- Location filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        data-bs-target="#collapseLocation" aria-expanded="true" aria-controls="collapseLocation">
                                     Location
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+                            <div id="collapseLocation" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
                                 <div class="accordion-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="locationInput" class="form-label">Location</label>
-                                            <input type="text" class="form-control" placeholder="Enter city, county, or zip" id="locationInput">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="radiusInput" class="form-label">Radius</label>
-                                            <input type="range" class="form-range" min="0" max="10" value="5" id="radiusInput" aria-describedby="radiusHelp">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div id="radiusHelp" class="form-text">0 mi.</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div id="radiusHelp" class="form-text text-end">10 mi.</div>
-                                                </div>
+                                    <div class="mb-3">
+                                        <label for="locationInput" class="form-label">Location</label>
+                                        <input type="text" class="form-control" placeholder="Enter city, county, or zip" id="locationInput" name="location">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="radiusInput" class="form-label">Radius</label>
+                                        <input type="range" class="form-range" min="0" max="10" value="5" id="radiusInput" aria-describedby="radiusHelp" name="radius">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div id="radiusHelp" class="form-text">0 mi.</div>
+                                            </div>
+                                            <div class="col">
+                                                <div id="radiusHelp" class="form-text text-end">10 mi.</div>
                                             </div>
                                         </div>
-                                        <div class="mb-3 form-check">
-                                            <input type="checkbox" class="form-check-input" id="currentInput">
-                                            <label class="form-check-label" for="currentInput">Use Current Location</label>
-                                        </div>
-                                    </form>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="currentInput" name="use_current_location">
+                                        <label class="form-check-label" for="currentInput">Use Current Location</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Specialty Filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Specialty
+                                        data-bs-target="#collapseSpecialty" aria-expanded="false" aria-controls="collapseSpecialty">
+                                    Services
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapseSpecialty" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="internalMedicine">
+                                        <input class="form-check-input" type="checkbox" value="Internal Medicine" name="service_type" id="internalMedicine">
                                         <label class="form-check-label" for="internalMedicine">Internal Medicine</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="familyServices">
+                                        <input class="form-check-input" type="checkbox" value="Family & Marriage Services" name="service_type" id="familyServices">
                                         <label class="form-check-label" for="familyServices">Family & Marriage Services</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="psychiatrist">
+                                        <input class="form-check-input" type="checkbox" value="Psychiatrist" name="service_type" id="psychiatrist">
                                         <label class="form-check-label" for="psychiatrist">Psychiatrist</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="behavioralAnalyst">
+                                        <input class="form-check-input" type="checkbox" value="Behavioral Analyst" name="service_type" id="behavioralAnalyst">
                                         <label class="form-check-label" for="behavioralAnalyst">Behavioral Analyst</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="clincalCounselor">
+                                        <input class="form-check-input" type="checkbox" value="Clinical Counselor" name="service_type" id="clinicalCounselor">
                                         <label class="form-check-label" for="clinicalCounselor">Clinical Counselor</label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Additional Services
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
-                                <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="suicidePrevention">
+                                        <input class="form-check-input" type="checkbox" value="Suicide Prevention" name="service_type" id="suicidePrevention">
                                         <label class="form-check-label" for="suicidePrevention">Suicide Prevention</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="nursingFacilities">
+                                        <input class="form-check-input" type="checkbox" value="Nursing Facilities" name="service_type" id="nursingFacilities">
                                         <label class="form-check-label" for="nursingFacilities">Nursing Facilities</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="intermediateCare">
+                                        <input class="form-check-input" type="checkbox" value="Intermediate Care" name="service_type" id="intermediateCare">
                                         <label class="form-check-label" for="intermediateCare">Intermediate Care Facility</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="crisisStabilization">
+                                        <input class="form-check-input" type="checkbox" value="Crisis Stabilization" name="service_type" id="crisisStabilization">
                                         <label class="form-check-label" for="crisisStabilization">Crisis Stabilization</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="psychiatricTreatment">
+                                        <input class="form-check-input" type="checkbox" value="Psychiatric Treatment" name="service_type" id="psychiatricTreatment">
                                         <label class="form-check-label" for="psychiatricTreatment">Psychiatric Treatment</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Health Plan Filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    data-bs-target="#collapsePlan" aria-expanded="false" aria-controls="collapsePlan">
                                     Health Plan
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapsePlan" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="aetna">
+                                        <input class="form-check-input" type="checkbox" value="Aetna Better Health" name="health_plan" id="aetna">
                                         <label class="form-check-label" for="aetna">Aetna Better Health</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="humana">
+                                        <input class="form-check-input" type="checkbox" value="Humana Health Plan" name="health_plan" id="humana">
                                         <label class="form-check-label" for="humana">Humana Health Plan</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="anthem">
+                                        <input class="form-check-input" type="checkbox" value="Anthem BlueCross/BlueShield" name="health_plan" id="anthem">
                                         <label class="form-check-label" for="anthem">Anthem BlueCross/BlueShield</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="wellcare">
-                                        <label class="form-check-label" for="wellcare">Wellcare of Kentucky</label>
+                                        <input class="form-check-input" type="checkbox" value="WellCare of Kentucky" name="health_plan" id="wellcare">
+                                        <label class="form-check-label" for="wellcare">WellCare of Kentucky</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    data-bs-target="#collapseLanguages" aria-expanded="false" aria-controls="collapseLanguages">
                                     Languages Spoken
                                 </button>
                             </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapseLanguages" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="english">
+                                        <input class="form-check-input" type="checkbox" value="English" name="languages_spoken" id="english">
                                         <label class="form-check-label" for="english">English</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="spanish">
+                                        <input class="form-check-input" type="checkbox" value="Spanish" name="languages_spoken" id="spanish">
                                         <label class="form-check-label" for="spanish">Spanish</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="mandarin">
+                                        <input class="form-check-input" type="checkbox" value="Mandarin" name="languages_spoken" id="mandarin">
                                         <label class="form-check-label" for="mandarin">Mandarin</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="french">
+                                        <input class="form-check-input" type="checkbox" value="French" name="languages_spoken" id="french">
                                         <label class="form-check-label" for="french">French</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="german">
+                                        <input class="form-check-input" type="checkbox" value="German" name="languages_spoken" id="german">
                                         <label class="form-check-label" for="german">German</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Emergency Services Filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    data-bs-target="#collapseEmergency" aria-expanded="false" aria-controls="collapseEmergency">
                                     Emergency Services
                                 </button>
                             </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapseEmergency" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                                 <div class="accordion-body">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="emergency" checked>
+                                        <input class="form-check-input" type="checkbox" role="switch" name="emergency_services" id="emergency" checked>
                                         <label class="form-check-label" for="emergency" id="emergencyLabel">Yes</label>
                                     </div>
-                                    <script>
-                                        var checkbox = document.getElementById('emergency');
-                                        var label = document.getElementById('emergencyLabel');
-                                        checkbox.addEventListener('change', function () {
-                                            label.textContent = checkbox.checked ? 'Yes' : 'No';
-                                        });
-                                    </script>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </form>
             </div>
@@ -268,6 +240,42 @@
     </div>
     
     {% include 'app/footer.html' %}
+
+    <script>
+        function resetForm() {
+            var text = document.getElementById('locationInput');
+            var radius = document.getElementById('radiusInput');
+            var checkboxes = document.querySelectorAll('.form-check-input');
+
+            text.value = '';
+            radius.value = 5;
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+
+            window.location.href = "{% url 'app:index' %}";
+        }
+
+        var checkbox = document.getElementById('emergency');
+        var label = document.getElementById('emergencyLabel');
+        checkbox.addEventListener('change', function () {
+            label.textContent = checkbox.checked ? 'Yes' : 'No';
+        });
+
+        var checkbox = document.getElementById('currentInput');
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                document.getElementById('locationInput').disabled = true;
+                document.getElementById('locationInput').value = 'Louisville';
+                document.getElementById('radiusInput').disabled = true;
+            } else {
+                document.getElementById('locationInput').disabled = false;
+                document.getElementById('locationInput').value = '';
+                document.getElementById('radiusInput').disabled = false;
+            }
+        });
+    </script>
 </body>
 
 </html>

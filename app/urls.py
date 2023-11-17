@@ -6,6 +6,6 @@ from . import views
 app_name = 'app'
 urlpatterns = [
     path('', views.getProviders, name='index'),
-    path('search/', views.searchProviders, name='search'),
+    path('filter/', views.filterProviders, name='filter'),
     path("admin/", admin.site.urls)
 ]
