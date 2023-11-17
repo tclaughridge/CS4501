@@ -1,0 +1,20 @@
+/* SEARCH FIELD */
+
+.search-group {
+    background-image: url('../images/texture.jpg');
+    background-size: 100%;
+}
+
+.main-search, .search-btn {
+      border-radius: 20px; /* Adjust this value to control the roundness */
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+/* FILTERS */
+
+.accordion-button:active, .accordion-button:focus {
+    box-shadow: none;
+}

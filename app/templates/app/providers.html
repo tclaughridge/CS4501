@@ -1,0 +1,49 @@
+<!-- FILEPATH: /Users/tclaughridge/Documents/GitHub/team-kentucky/kentuckyhealth/app/templates/app/providers.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Static -->
+    {% load static %}
+
+    <!-- Load Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    
+    <!-- Include CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/base.css' %}">
+</head>
+
+<body>
+    <!-- Provider Cards -->
+    {% for provider in data %}
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <h5 class="card-title">{{ provider.name }}</h5>
+                <p class="card-text">{{ provider.addressLine1 }}<br>{{ provider.addressLine2 }}</p>
+                <p class="card-text">Phone: {{ provider.phone }}</p>
+                <p class="card-text">Website: <a href="{{ provider.website }}" target="_blank">{{ provider.website }}</a>
+                </p>
+                <!-- Add other fields as needed -->
+
+                <!-- Example of displaying services -->
+                <h6>Services:</h6>
+                <ul>
+                    <li>{{ provider.service1 }}</li>
+                    <li>{{ provider.service2 }}</li>
+                    <li>{{ provider.service3 }}</li>
+                    <!-- Add more services as needed -->
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+
+</html>

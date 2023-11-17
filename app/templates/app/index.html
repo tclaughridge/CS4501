@@ -18,8 +18,8 @@
         crossorigin="anonymous"></script>
     
     <!-- Include CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/home.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app/css/base.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app/css/navbar.css' %}">
 </head>
 
 <body>
@@ -45,12 +45,15 @@
 
     <!-- Columns -->
     <div class="container">
-        <div class="row">
+        <div class="row gx-5 mt-5">
             <!-- Filters -->
-            <div class="col-3">
-                <div class="d-flex justify-content-between my-4">
+            <div class="col-3 border-end">
+                <div class="d-flex justify-content-between mb-3">
                     <h1 class="display-6">Filters</h1>
-                    <button class="btn btn-outline-primary search-btn" onclick="resetForm()">Reset All</button>
+                    <div class="pt-2">
+                        <button class="btn btn-outline-primary search-btn" onclick="resetForm()">Reset All</button>
+                        <button class="btn btn-primary search-btn ml-2" type="submit">Apply</button>
+                    </div>
                     <script>
                         function resetForm() {
                             var text = document.getElementById('locationInput');
@@ -253,9 +256,14 @@
             </div>
             <!-- Results -->
             <div class="col-9">
+                <h1 class="display-6">Results</h1>
+                <hr class="my-4"></hr>
+                {% include 'app/providers.html' %}
             </div>
         </div>
     </div>
+    
+    {% include 'app/footer.html' %}
 </body>
 
 </html>

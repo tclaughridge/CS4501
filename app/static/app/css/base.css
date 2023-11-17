@@ -10,8 +10,8 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #013d71 !important;
-    border-color: #013d71 !important;
+    background-color: #004b8c !important;
+    border-color: #004b8c !important;
 }
 
 .btn-outline-primary {
@@ -23,25 +23,4 @@ body {
     color: white !important;
     background-color: #013d71 !important;
     border-color: #013d71 !important;
-}
-
-/* SEARCH FIELD */
-
-.search-group {
-    background-image: url('../images/texture.jpg');
-    background-size: 100%;
-}
-
-.main-search, .search-btn {
-      border-radius: 20px; /* Adjust this value to control the roundness */
-}
-
-.form-control:focus {
-    box-shadow: none;
-}
-
-/* FILTERS */
-
-.accordion-item:active, .accordion-item:focus {
-    box-shadow: none;
 }
