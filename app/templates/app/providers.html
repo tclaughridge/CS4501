@@ -69,13 +69,13 @@
                                 {% if provider.contact %}
                                     <p class="fs-4">{{ provider.contact }}</p>
                                 {% endif %}
-                                <p class="fs-4 mb-4"><a href="tel:{{ provider.phone }}" target="_blank">{{ provider.phone }}</a>
+                                <p class="fs-4 mb-4"><a href="tel:{{ provider.phone }}" target="_blank">{{ provider.phone }}</a><br>
                                 {% if provider.website %}
-                                    <a href="{{ provider.website }}" class="fs-4 mb-4" target="_blank">{{ provider.website }}</a>
+                                    <a href="{{ provider.website }}" class="fs-4 mb-4" target="_blank">{{ provider.website }}</a><br>
                                 {% endif %}
 
                                 {% if provider.email %}
-                                    <a href="mailto:{{ provider.email }}" class="fs-4 mb-4" target="_blank">{{ provider.email }}</a>
+                                    <a href="mailto:{{ provider.email }}" class="fs-4 mb-4" target="_blank">{{ provider.email }}</a><br>
                                 {% endif %}
                                 <div style="height: 15px;"></div>
                                 <button type="button" class="btn btn-lg btn-success me-1 mt-auto" style="color: white !important;" 
