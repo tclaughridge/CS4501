@@ -5,13 +5,13 @@ body {
 }
 
 .btn-primary {
-    background-color: #013561 !important;
-    border-color: #013561 !important;
+    background-color: #013561;
+    border-color: #013561;
 }
 
 .btn-primary:hover {
-    background-color: #004b8c !important;
-    border-color: #004b8c !important;
+    background-color: #004b8c;
+    border-color: #004b8c;
 }
 
 .btn-outline-primary {

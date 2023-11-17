@@ -17,30 +17,32 @@
         crossorigin="anonymous"></script>
     
     <!-- Include CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/providers.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app/css/base.css' %}">
 </head>
 
 <body>
     <!-- Provider Cards -->
     {% for provider in data %}
-        <div class="card" style="width: 18rem;">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <div class="card-body">
-                <h5 class="card-title">{{ provider.name }}</h5>
-                <p class="card-text">{{ provider.addressLine1 }}<br>{{ provider.addressLine2 }}</p>
-                <p class="card-text">Phone: {{ provider.phone }}</p>
-                <p class="card-text">Website: <a href="{{ provider.website }}" target="_blank">{{ provider.website }}</a>
-                </p>
-                <!-- Add other fields as needed -->
+        <div class="card me-4 mb-4 rounded-4">
+            <div class="card-body p-2 d-flex flex-column">
+                <div class="row">
+                    <div class="col">
+                        <img src="{% static 'app/images/placeholder.jpg' %}" class="img-fluid rounded-4" alt="...">
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title">{{ provider.name }}</h6>
+                        <p class="card-text text-sm">{{ provider.addressLine1 }}<br>{{ provider.addressLine2 }}</p>
+                        <p class="card-text text-sm">Phone: {{ provider.phone }}</p>
 
-                <!-- Example of displaying services -->
-                <h6>Services:</h6>
-                <ul>
-                    <li>{{ provider.service1 }}</li>
-                    <li>{{ provider.service2 }}</li>
-                    <li>{{ provider.service3 }}</li>
-                    <!-- Add more services as needed -->
-                </ul>
+                        <!-- Directions Button -->
+                        <button type="button" class="btn directions btn-success me-1 mt-auto" style="color: white !important;" data-bs-toggle="modal" 
+                        data-bs-target="#providerDetailsModal{{ provider.id }}">Directions</button>
+                        <!-- Provider Details Button -->
+                        <button type="button" class="btn profile btn-info mt-auto" style="color: white !important;" data-bs-toggle="modal" 
+                        data-bs-target="#providerDetailsModal{{ provider.id }}">Profile</button>
+                    </div>
+                </div>
             </div>
         </div>
     {% endfor %}
