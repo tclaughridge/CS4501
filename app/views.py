@@ -86,18 +86,20 @@ def searchProviders(request):
 
     # Location, Provider Name, and Services Filter
     if 'query' in request.GET:
-        query = request.GET['query'].lower()
-        filter_conditions.append({
-            'name': 'Search',
-            'value': query,
-            'condition': lambda provider: (
-                query in provider['city'].lower() or
-                query in provider['county'].lower() or
-                query in provider['zip'] or
-                query in provider['name'].lower() or
-                any(query in service.lower() for service in provider['services'])
-            )
-        })
+        queries = request.GET['query'].lower().split()
+        for query in queries:
+            filter_conditions.append({
+                'name': 'Search',
+                'value': query,
+                'condition': lambda provider: (
+                    query in provider['city'].lower() or
+                    query in provider['county'].lower() or
+                    query in provider['zip'] or
+                    query in provider['name'].lower() or
+                    any(query in service.lower() for service in provider['services'])
+                )
+            })
+
 
     
     filtered_data = data
