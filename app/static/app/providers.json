@@ -332,5 +332,24 @@
     "img1": "https://aem-arch.com/wp-content/uploads/2018/06/entry-elevation-large.jpg",
     "img2": "",
     "img3": ""
+  },
+  {
+    "name": "Richards, Donna",
+    "address": "4010 Dupont Circle, Suite 226",
+    "city": "St. Matthews",
+    "county": "Jefferson",
+    "zip": "40207",
+
+    "phone": "502-899-5411",
+    "website": "",
+    "contact": "",
+    "email": "",
+    "services": ["Licensed Clinical Social Worker", "Clinical Counselor", "Family & Marriage Services"],
+    "health_plan": ["Anthem BlueCross/BlueShield", "Humana Health Plan", "Aetna Better Health"],
+    "languages_spoken": ["English", "Spanish", "French"],
+
+    "img1": "https://media.istockphoto.com/id/91104453/photo/medical-building-doctors-office.jpg?s=612x612&w=0&k=20&c=0qWESMYfi24iZuigdYHpuRsq-n33RwOGYoG58ctbhX4=",
+    "img2": "",
+    "img3": ""
   }
 ]
