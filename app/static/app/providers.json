@@ -351,5 +351,24 @@
     "img1": "https://media.istockphoto.com/id/91104453/photo/medical-building-doctors-office.jpg?s=612x612&w=0&k=20&c=0qWESMYfi24iZuigdYHpuRsq-n33RwOGYoG58ctbhX4=",
     "img2": "",
     "img3": ""
+  },
+  {
+    "name": "The Counseling Center",
+    "address": "404 North 4th Street",
+    "city": "Murray",
+    "county": "Calloway",
+    "zip": "42071",
+
+    "phone": "270-293-4819",
+    "website": "",
+    "contact": "",
+    "email": "",
+    "services": ["Behavioral Analyst", "Clinical Counselor", "Family & Marriage Services"],
+    "health_plan": ["Anthem BlueCross/BlueShield", "Humana Health Plan", "Aetna Better Health"],
+    "languages_spoken": ["English", "Spanish", "French"],
+
+    "img1": "https://thecounselingcenter.org/wp-content/uploads/2020/11/TCC-meeting-4-400x400.jpg",
+    "img2": "",
+    "img3": ""
   }
 ]
