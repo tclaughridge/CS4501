@@ -5,8 +5,12 @@
     background-size: 100%;
 }
 
-.main-search, .search-btn {
+.search-btn {
       border-radius: 20px; /* Adjust this value to control the roundness */
+}
+
+.input-group {
+    border-radius: 20px; /* Adjust this value to control the roundness */
 }
 
 .form-control:focus {

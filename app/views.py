@@ -72,3 +72,36 @@ def filterProviders(request):
 
     return render(request, 'app/index.html', {'data': filtered_data, 'filter_conditions': filter_conditions})
 
+def searchProviders(request):
+    json_file_path = os.path.join(settings.BASE_DIR, 'app/static/app/providers.json')
+
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+        data = sorted(data, key=lambda x: x['name'].lower())
+
+    # Create a list to store filter conditions, names, and values
+    filter_conditions = []
+
+    # Check if each filter parameter is in the request.GET dictionary
+
+    # Location, Provider Name, and Services Filter
+    if 'query' in request.GET:
+        query = request.GET['query'].lower()
+        filter_conditions.append({
+            'name': 'Search',
+            'value': query,
+            'condition': lambda provider: (
+                query in provider['city'].lower() or
+                query in provider['county'].lower() or
+                query in provider['zip'] or
+                query in provider['name'].lower() or
+                any(query in service.lower() for service in provider['services'])
+            )
+        })
+
+    
+    filtered_data = data
+    for condition in filter_conditions:
+        filtered_data = list(filter(condition['condition'], filtered_data))
+    
+    return render(request, 'app/index.html', {'data': filtered_data, 'filter_conditions': filter_conditions})

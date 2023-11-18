@@ -7,5 +7,6 @@ app_name = 'app'
 urlpatterns = [
     path('', views.getProviders, name='index'),
     path('filter/', views.filterProviders, name='filter'),
+    path('search/', views.searchProviders, name='search'),
     path("admin/", admin.site.urls)
 ]
