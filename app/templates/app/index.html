@@ -70,7 +70,7 @@
                                     Location
                                 </button>
                             </h2>
-                            <div id="collapseLocation" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+                            <div id="collapseLocation" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <div class="mb-3">
                                         <label for="locationInput" class="form-label">Location</label>
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 form-check">
-                                        <input type="checkbox" onchange="updateFilterCheckbox(this)" class="form-check-input" id="currentInput" name="use_current_location">
+                                        <input type="checkbox"  class="form-check-input" id="currentInput" name="use_current_location">
                                         <label class="form-check-label" for="currentInput">Use Current Location</label>
                                     </div>
                                 </div>
@@ -99,51 +99,51 @@
                         <!-- Specialty Filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseSpecialty" aria-expanded="false" aria-controls="collapseSpecialty">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSpecialty" aria-expanded="true" aria-controls="collapseSpecialty">
                                     Services
                                 </button>
                             </h2>
-                            <div id="collapseSpecialty" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapseSpecialty" class="accordion-collapse">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Internal Medicine" name="service_type" id="internalMedicine">
+                                        <input class="form-check-input" type="checkbox"  value="Internal Medicine" name="service_type" id="internalMedicine">
                                         <label class="form-check-label" for="internalMedicine">Internal Medicine</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Family & Marriage Services" name="service_type" id="familyServices">
+                                        <input class="form-check-input" type="checkbox"  value="Family & Marriage Services" name="service_type" id="familyServices">
                                         <label class="form-check-label" for="familyServices">Family & Marriage Services</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Psychiatrist" name="service_type" id="psychiatrist">
+                                        <input class="form-check-input" type="checkbox"  value="Psychiatrist" name="service_type" id="psychiatrist">
                                         <label class="form-check-label" for="psychiatrist">Psychiatrist</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Behavioral Analyst" name="service_type" id="behavioralAnalyst">
+                                        <input class="form-check-input" type="checkbox"  value="Behavioral Analyst" name="service_type" id="behavioralAnalyst">
                                         <label class="form-check-label" for="behavioralAnalyst">Behavioral Analyst</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Clinical Counselor" name="service_type" id="clinicalCounselor">
+                                        <input class="form-check-input" type="checkbox"  value="Clinical Counselor" name="service_type" id="clinicalCounselor">
                                         <label class="form-check-label" for="clinicalCounselor">Clinical Counselor</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Suicide Prevention" name="service_type" id="suicidePrevention">
+                                        <input class="form-check-input" type="checkbox"  value="Suicide Prevention" name="service_type" id="suicidePrevention">
                                         <label class="form-check-label" for="suicidePrevention">Suicide Prevention</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Nursing Facilities" name="service_type" id="nursingFacilities">
+                                        <input class="form-check-input" type="checkbox"  value="Nursing Facilities" name="service_type" id="nursingFacilities">
                                         <label class="form-check-label" for="nursingFacilities">Nursing Facilities</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Intermediate Care" name="service_type" id="intermediateCare">
+                                        <input class="form-check-input" type="checkbox"  value="Intermediate Care" name="service_type" id="intermediateCare">
                                         <label class="form-check-label" for="intermediateCare">Intermediate Care Facility</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Crisis Stabilization" name="service_type" id="crisisStabilization">
+                                        <input class="form-check-input" type="checkbox"  value="Crisis Stabilization" name="service_type" id="crisisStabilization">
                                         <label class="form-check-label" for="crisisStabilization">Crisis Stabilization</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Psychiatric Treatment" name="service_type" id="psychiatricTreatment">
+                                        <input class="form-check-input" type="checkbox"  value="Psychiatric Treatment" name="service_type" id="psychiatricTreatment">
                                         <label class="form-check-label" for="psychiatricTreatment">Psychiatric Treatment</label>
                                     </div>
                                 </div>
@@ -153,27 +153,27 @@
                         <!-- Health Plan Filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapsePlan" aria-expanded="false" aria-controls="collapsePlan">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapsePlan" aria-expanded="true" aria-controls="collapsePlan">
                                     Health Plan
                                 </button>
                             </h2>
-                            <div id="collapsePlan" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapsePlan" class="accordion-collapse">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Aetna Better Health" name="health_plan" id="aetna">
+                                        <input class="form-check-input" type="checkbox"  value="Aetna Better Health" name="health_plan" id="aetna">
                                         <label class="form-check-label" for="aetna">Aetna Better Health</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Humana Health Plan" name="health_plan" id="humana">
+                                        <input class="form-check-input" type="checkbox"  value="Humana Health Plan" name="health_plan" id="humana">
                                         <label class="form-check-label" for="humana">Humana Health Plan</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Anthem BlueCross/BlueShield" name="health_plan" id="anthem">
+                                        <input class="form-check-input" type="checkbox"  value="Anthem BlueCross/BlueShield" name="health_plan" id="anthem">
                                         <label class="form-check-label" for="anthem">Anthem BlueCross/BlueShield</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="WellCare of Kentucky" name="health_plan" id="wellcare">
+                                        <input class="form-check-input" type="checkbox"  value="WellCare of Kentucky" name="health_plan" id="wellcare">
                                         <label class="form-check-label" for="wellcare">WellCare of Kentucky</label>
                                     </div>
                                 </div>
@@ -182,31 +182,31 @@
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLanguages" aria-expanded="false" aria-controls="collapseLanguages">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseLanguages" aria-expanded="true" aria-controls="collapseLanguages">
                                     Languages Spoken
                                 </button>
                             </h2>
-                            <div id="collapseLanguages" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapseLanguages" class="accordion-collapse">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="English" name="languages_spoken" id="english">
+                                        <input class="form-check-input" type="checkbox"  value="English" name="languages_spoken" id="english">
                                         <label class="form-check-label" for="english">English</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Spanish" name="languages_spoken" id="spanish">
+                                        <input class="form-check-input" type="checkbox"  value="Spanish" name="languages_spoken" id="spanish">
                                         <label class="form-check-label" for="spanish">Spanish</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="Mandarin" name="languages_spoken" id="mandarin">
+                                        <input class="form-check-input" type="checkbox"  value="Mandarin" name="languages_spoken" id="mandarin">
                                         <label class="form-check-label" for="mandarin">Mandarin</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="French" name="languages_spoken" id="french">
+                                        <input class="form-check-input" type="checkbox"  value="French" name="languages_spoken" id="french">
                                         <label class="form-check-label" for="french">French</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" value="German" name="languages_spoken" id="german">
+                                        <input class="form-check-input" type="checkbox"  value="German" name="languages_spoken" id="german">
                                         <label class="form-check-label" for="german">German</label>
                                     </div>
                                 </div>
@@ -216,15 +216,15 @@
                         <!-- Emergency Services Filter -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseEmergency" aria-expanded="false" aria-controls="collapseEmergency">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseEmergency" aria-expanded="true" aria-controls="collapseEmergency">
                                     Emergency Services
                                 </button>
                             </h2>
-                            <div id="collapseEmergency" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                            <div id="collapseEmergency" class="accordion-collapse">
                                 <div class="accordion-body">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" onchange="updateFilterCheckbox(this)" role="switch" name="emergency_services" id="emergency" checked>
+                                        <input class="form-check-input" type="checkbox" role="switch" name="emergency_services" id="emergency" checked>
                                         <label class="form-check-label" for="emergency" id="emergencyLabel">Yes</label>
                                     </div>
                                 </div>
@@ -238,7 +238,11 @@
             <div class="col-9">
                 <h1 class="display-6">Results</h1>
                 <hr class="my-4"></hr>
-                {% include 'app/providers.html' %}
+                {% if data %}
+                    {% include 'app/providers.html' %}
+                {% else %}
+                    <p class="text-center lead">Search or filter to begin finding providers.</p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -257,6 +261,7 @@
             checkboxes.forEach(function (checkbox) {
                 checkbox.checked = false;
             });
+            saveFilterState();
 
             window.location.href = "{% url 'app:index' %}";
         }
@@ -282,45 +287,50 @@
 
 
 
-        // COOKIES
-        function setCookie(name, value) {
-            document.cookie = name + "=" + value + "; path=/";
+        // PERSIST FILTERS
+        function saveFilterState() {
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            // Create an object to store filter state
+            const filterState = {};
+
+            checkboxes.forEach((checkbox) => {
+                filterState[checkbox.id] = checkbox.checked;
+            });
+
+            // Save the filter state to localStorage
+            localStorage.setItem('filterState', JSON.stringify(filterState));
         }
 
-        // Function to get the value of a cookie by name
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i];
-                while (cookie.charAt(0) === ' ') cookie = cookie.substring(1, cookie.length);
-                if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
+        // Attach the saveFilterState function to the change event of checkboxes
+        document.addEventListener('change', function (event) {
+            if (event.target.type === 'checkbox') {
+                saveFilterState();
             }
-            return null;
-        }
+        });
 
-        // Function to initialize filter checkboxes based on cookies
-        function initializeFilters() {
-            // Example for a checkbox with id 'health_plan'
-            var healthPlanCheckbox = document.getElementById('health_plan');
-            var healthPlanCookie = getCookie('health_plan');
+        // Function to restore filter state from localStorage
+        function restoreFilterState() {
+            // Get the filter state from localStorage
+            const savedFilterState = localStorage.getItem('filterState');
 
-            if (healthPlanCookie !== null) {
-                healthPlanCheckbox.checked = healthPlanCookie === 'true';
+            // If there's saved state, apply it to checkboxes
+            if (savedFilterState) {
+                const filterState = JSON.parse(savedFilterState);
+
+                for (const id in filterState) {
+                    const checkbox = document.getElementById(id);
+
+                    if (checkbox) {
+                        checkbox.checked = filterState[id];
+                    }
+                }
             }
-
-            // Add similar logic for other filter checkboxes
         }
 
-        // Function to update the cookie when a checkbox is changed
-        function updateFilterCheckbox(checkbox) {
-            setCookie(checkbox.id, checkbox.checked);
-        }
-
-        // Call initializeFilters when the page loads
-        window.onload = function () {
-            initializeFilters();
-        };
+        // Call the restoreFilterState function when the page loads
+        document.addEventListener('DOMContentLoaded', restoreFilterState);
     </script>
 </body>
 
